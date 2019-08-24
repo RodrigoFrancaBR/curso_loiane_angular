@@ -11,8 +11,8 @@ export class LoginDTO {
     constructor(private fb?: FormBuilder) {
     }
 
-    get firstName() {
-        return this.form.get('firstName');
+    get userName() {
+        return this.form.get('userName');
     }
 
     get password() {
@@ -20,7 +20,7 @@ export class LoginDTO {
     }
 
     form = this.fb.group({
-        firstName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10), ValidatorsUtil.validaName]],
+        userName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10), ValidatorsUtil.validaName]],
         password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
     });
 }

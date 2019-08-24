@@ -20,12 +20,12 @@
 
                   <div class="input-group mb-2">
                     <label>
-                      First Name:
-                      <input id="inpFirstName" type="text" class="form-control" formControlName="firstName"
-                        [ngClass]="loginDTO.firstName.errors && (loginDTO.firstName.touched || loginDTO.firstName.dirty)?{'is-invalid': true}:null">
+                      UserName:
+                      <input id="inpuserName" type="text" class="form-control" formControlName="userName"
+                        [ngClass]="loginDTO.userName.errors && (loginDTO.userName.touched || loginDTO.userName.dirty)?{'is-invalid': true}:null">
                       <app-form-mensagem
-                        [mostraErro]="loginDTO.firstName.errors && (loginDTO.firstName.touched || loginDTO.firstName.dirty)"
-                        [errors]="loginDTO.firstName.errors"></app-form-mensagem>
+                        [mostraErro]="loginDTO.userName.errors && (loginDTO.userName.touched || loginDTO.userName.dirty)"
+                        [errors]="loginDTO.userName.errors"></app-form-mensagem>
                     </label>
                   </div>
 

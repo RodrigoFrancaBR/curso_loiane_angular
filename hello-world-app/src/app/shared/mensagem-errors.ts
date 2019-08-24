@@ -3,7 +3,7 @@ import { ValidationErrors } from '@angular/forms';
 export class MensagemErrors {
     public static REQUIRED = 'Campo com preenchimento obrigatório!';
     public static EMAIL = 'Email inválido!';
-    public static INVALIDNAME = 'nome inválido!';
+    public static INVALIDNAME = 'usuário inválido!';
 
     public static minlength(errors: ValidationErrors): string {
         const min: string = errors.minlength.requiredLength;

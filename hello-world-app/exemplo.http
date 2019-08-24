@@ -1,0 +1,26 @@
+### GET
+http://localhost:3000/users
+
+### POST
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "userName": "pedefeijo",
+    "password": "123456"
+}
+
+### PUT
+PUT http://localhost:3000/users/2 HTTP/1.1
+content-type: application/json
+
+{
+    "userName": "pedreiro",
+    "password": "123456"
+}
+
+### DELETE
+DELETE http://localhost:3000/users/2 HTTP/1.1
+
+### GET/ID
+http://localhost:3000/users/1
