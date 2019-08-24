@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
-import { LoginDTO } from 'src/app/dto/login-dto';
-import { tap } from 'rxjs/operators';
+import { LoginDTO } from './../../dto/login-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class LoginService {
   constructor(private httpClient: HttpClient) {
   }
 
-  users() {
-    return this.httpClient.get<LoginDTO[]>(this.API)
-    .pipe(
-      tap(console.log)
-    )
-    ;
+  users(): Observable<LoginDTO[]> {
+    return this.httpClient.get<LoginDTO[]>(this.API);
+  }
+
+  usersAdd(loginDTO: LoginDTO): Observable<any> {
+    return this.httpClient.post(this.API, loginDTO);
   }
 }
 
