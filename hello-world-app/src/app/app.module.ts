@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
 import { FormMensagemComponent } from './form-mensagem/form-mensagem.component';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { FormMensagemComponent } from './form-mensagem/form-mensagem.component';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

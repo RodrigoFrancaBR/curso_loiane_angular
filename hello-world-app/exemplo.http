@@ -1,3 +1,4 @@
+### START SERVER json-server --watch db.json
 ### GET
 http://localhost:3000/users
 
