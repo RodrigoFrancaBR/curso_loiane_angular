@@ -1,0 +1,62 @@
+<div class="fundo--login">
+
+  <div class="app flex-row align-items-center">
+
+    <div class="container">
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+          <div class="card-group">
+
+            <div class="card p-4 container-login">
+
+              <div class="card-body">
+
+                <div class="text-center mb-3">
+                </div>
+                <form class="form-group" [formGroup]="this.loginDTO.form" (ngSubmit)="onSubmit()">
+
+                  <div class="input-group mb-2">
+                    <label>
+                      First Name:
+                      <input id="inpFirstName" type="text" class="form-control" formControlName="firstName"
+                        [ngClass]="loginDTO.firstName.errors && (loginDTO.firstName.touched || loginDTO.firstName.dirty)?{'is-invalid': true}:null">
+                      <app-form-mensagem
+                        [mostraErro]="loginDTO.firstName.errors && (loginDTO.firstName.touched || loginDTO.firstName.dirty)"
+                        [errors]="loginDTO.firstName.errors"></app-form-mensagem>
+                    </label>
+                  </div>
+
+                  <div class="input-group mb-2">
+                    <label>
+                      Last Name:
+                      <input id="inppassword" type="text" class="form-control" formControlName="password"
+                        [ngClass]="loginDTO.password.errors && (loginDTO.password.touched || loginDTO.password.dirty)?{'is-invalid': true}:null">
+                      <app-form-mensagem
+                        [mostraErro]="loginDTO.password.errors && (loginDTO.password.touched || loginDTO.password.dirty)"
+                        [errors]="loginDTO.password.errors"></app-form-mensagem>
+                    </label>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-12">
+                      <div class="form-inline justify-content-between">
+                        <div>
+                          <button type="submit" class="btn btn-success icon-forward"
+                            [disabled]="loginDTO.form.invalid">Submit</button>
+                          <!-- <button type="submit" class="btn btn-success icon-forward">Submit</button> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
