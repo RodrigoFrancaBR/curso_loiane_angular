@@ -20,7 +20,7 @@ export class LoginDTO {
     }
 
     form = this.fb.group({
-        firstName: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10), ValidatorsUtil.validaName]],
+        firstName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10), ValidatorsUtil.validaName]],
         password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
     });
 }
