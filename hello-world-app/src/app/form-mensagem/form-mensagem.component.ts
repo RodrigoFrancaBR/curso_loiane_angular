@@ -30,7 +30,7 @@ export class FormMensagemComponent {
       } else if (errors.email) {
         this.msg = MensagemErrors.EMAIL;
       } else if (errors.minlength) {
-        // neste caso queremo mostrar uma msg personalizada
+        // neste caso queremos mostrar uma msg personalizada
         this.msg = MensagemErrors.minlength(errors);
       } else if (errors.invalidName) {
         this.msg = MensagemErrors.INVALIDNAME;

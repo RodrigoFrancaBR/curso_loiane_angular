@@ -21,22 +21,16 @@
                   <div class="input-group mb-2">
                     <label>
                       UserName:
-                      <input id="inpuserName" type="text" class="form-control" formControlName="userName"
-                        [ngClass]="aplicarCSSErro('userName')">
-                      <app-form-mensagem
-                        [mostraErro]="mostrarErro('userName')"
-                        [errors]="loginDTO.userName.errors"></app-form-mensagem>
+                      <input id="inpuserName" type="text" class="form-control" formControlName="userName" [ngClass]="aplicarCSSErro('userName')">
+                      <app-form-mensagem [mostraErro]="mostrarErro('userName')" [errors]="loginDTO.userName.errors"></app-form-mensagem>
                     </label>
                   </div>
 
                   <div class="input-group mb-2">
                     <label>
                       Password:
-                      <input id="inppassword" type="text" class="form-control" formControlName="password"
-                        [ngClass]="loginDTO.password.errors && (loginDTO.password.touched || loginDTO.password.dirty)?{'is-invalid': true}:null">
-                      <app-form-mensagem
-                        [mostraErro]="loginDTO.password.errors && (loginDTO.password.touched || loginDTO.password.dirty)"
-                        [errors]="loginDTO.password.errors"></app-form-mensagem>
+                      <input id="inppassword" type="text" class="form-control" formControlName="password" [ngClass]="aplicarCSSErro('password')">
+                      <app-form-mensagem [mostraErro]="mostrarErro('password')" [errors]="loginDTO.password.errors"></app-form-mensagem>
                     </label>
                   </div>
 

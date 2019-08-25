@@ -30,12 +30,21 @@ export class LoginComponent implements OnInit {
   }
 
   aplicarCSSErro(controlName: string) {
-    return this.loginDTO.form.get(controlName).errors &&
-      (this.loginDTO.form.get(controlName).touched ||
-        this.loginDTO.form.get(controlName).dirty) ? { 'is-invalid': true } : null;
+    return this.isValid(controlName) ? { 'is-invalid': true } : null;
+    // return this.loginDTO.form.get(controlName).errors &&
+    //   (this.loginDTO.form.get(controlName).touched ||
+    //     this.loginDTO.form.get(controlName).dirty) ? { 'is-invalid': true } : null;
   }
 
   mostrarErro(controlName: string) {
+    return this.isValid(controlName);
+    // return this.loginDTO.form.get(controlName).errors &&
+    //   (this.loginDTO.form.get(controlName).touched ||
+    //     this.loginDTO.form.get(controlName).dirty) ? true : false;
+  }
+
+  // um campo é inválido qdo possui algum erro já estiver sido tocado ou ganho foco.
+  isValid(controlName: string): boolean {
     return this.loginDTO.form.get(controlName).errors &&
       (this.loginDTO.form.get(controlName).touched ||
         this.loginDTO.form.get(controlName).dirty) ? true : false;
