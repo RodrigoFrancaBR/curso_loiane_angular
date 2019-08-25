@@ -28,4 +28,16 @@ export class LoginComponent implements OnInit {
     this.service.usersAdd(this.loginDTO.form.value).subscribe(rs => console.log());
     console.log(this.service.users().subscribe(rs => console.log(rs)));
   }
+
+  aplicarCSSErro(controlName: string) {
+    return this.loginDTO.form.get(controlName).errors &&
+      (this.loginDTO.form.get(controlName).touched ||
+        this.loginDTO.form.get(controlName).dirty) ? { 'is-invalid': true } : null;
+  }
+
+  mostrarErro(controlName: string) {
+    return this.loginDTO.form.get(controlName).errors &&
+      (this.loginDTO.form.get(controlName).touched ||
+        this.loginDTO.form.get(controlName).dirty) ? true : false;
+  }
 }
