@@ -9,14 +9,20 @@ import { LoginDTO } from './../../dto/login-dto';
 })
 
 export class LoginService {
-  private readonly API = 'http://localhost:3000/users';
+  private readonly API = '/api/user';
+  // private readonly API = 'http://localhost:8080/user';
+  // private readonly API = 'http://localhost:3000/users';
 
   constructor(private httpClient: HttpClient) {
   }
 
-  users(): Observable<LoginDTO[]> {
-    return this.httpClient.get<LoginDTO[]>(this.API);
+  users(): Observable<any> {
+    return this.httpClient.get(this.API);
   }
+
+  // users(): Observable<LoginDTO[]> {
+  //   return this.httpClient.get<LoginDTO[]>(this.API);
+  // }
 
   usersAdd(loginDTO: LoginDTO): Observable<any> {
     return this.httpClient.post(this.API, loginDTO);
