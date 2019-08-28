@@ -16,6 +16,22 @@ export class LoginService {
   constructor(private httpClient: HttpClient) {
   }
 
+  findUser(): Observable<any> {
+    return this.httpClient.get(this.API);
+  }
+
+  updateUser(loginDTO: LoginDTO): Observable<any> {
+    return this.httpClient.put(this.API + '/update', loginDTO);
+  }
+
+  addUser(loginDTO: LoginDTO): Observable<any> {
+    return this.httpClient.post(this.API + '/add', loginDTO);
+  }
+
+  deleteUser(loginDTO: LoginDTO): Observable<any> {
+    return this.httpClient.delete(this.API + '/delete');
+  }
+
   users(): Observable<any> {
     return this.httpClient.get(this.API);
   }
@@ -24,8 +40,5 @@ export class LoginService {
   //   return this.httpClient.get<LoginDTO[]>(this.API);
   // }
 
-  usersAdd(loginDTO: LoginDTO): Observable<any> {
-    return this.httpClient.post(this.API, loginDTO);
-  }
 }
 

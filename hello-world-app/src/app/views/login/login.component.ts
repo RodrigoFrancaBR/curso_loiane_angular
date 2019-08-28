@@ -10,16 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
   constructor(public loginDTO: LoginDTO, private service: LoginService) { }
-  // retorno$: Observable<LoginDTO[]>;
   retorno: LoginDTO[];
 
   ngOnInit() {
     this.service.users().subscribe((rs) => {
-      console.log (rs);
+      console.log(rs);
     });
-    console.log(this.retorno);
-    // this.retorno$ = this.service.users();
-    // console.log(this.retorno$);
   }
 
   // ngOnInit() {
@@ -31,10 +27,29 @@ export class LoginComponent implements OnInit {
   //   // console.log(this.retorno$);
   // }
 
-  onSubmit() {
-    console.log(this.loginDTO.form);
-    this.service.usersAdd(this.loginDTO.form.value).subscribe(rs => console.log());
-    console.log(this.service.users().subscribe(rs => console.log(rs)));
+  logar() {
+    this.service.findUser().subscribe((rs => {
+      // tslint:disable-next-line:prefer-const
+      let user = rs;
+    }));
+  }
+
+  forgot() {
+    this.service.updateUser(this.loginDTO.form.value).subscribe((rs => {
+      console.log(rs);
+    }));
+  }
+
+  register() {
+    this.service.addUser(this.loginDTO.form.value).subscribe((rs => {
+      console.log(rs);
+    }));
+  }
+
+  delete() {
+    this.service.deleteUser(this.loginDTO.form.value).subscribe((rs => {
+      console.log(rs);
+    }));
   }
 
   aplicarCSSErro(controlName: string) {

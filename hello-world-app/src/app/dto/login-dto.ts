@@ -19,9 +19,14 @@ export class LoginDTO {
         return this.form.get('password');
     }
 
+    get confirmaPassword() {
+        return this.form.get('confirmaPassword');
+    }
+
     form = this.fb.group({
         userName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10), ValidatorsUtil.validaName]],
         password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+        confirmaPassword: ['', [Validators.minLength(6), Validators.maxLength(10)]],
     });
 }
 
