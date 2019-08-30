@@ -2,7 +2,7 @@
     <div class="mid-class">
         <div class="art-right-w3ls">
             <h2>Sign In and Sign Up</h2>
-            <form class="form-group" [formGroup]="this.loginDTO.form" (ngSubmit)="logar()">
+            <form class="form-group" [formGroup]="this.loginDTO.form" (ngSubmit)="efetuarLogin()">
                 <div class="main">
 
                     <div class="input-group mb-2">
@@ -61,7 +61,7 @@
                 <div class="popup">
                     <!--login form-->
                     <div class="letter-w3ls">
-                        <form class="form-group" [formGroup]="this.loginDTO.form" (ngSubmit)="forgot()">
+                        <form class="form-group" [formGroup]="this.loginDTO.form" (ngSubmit)="recuperarSenha()">
 
                             <div class="input-group mb-2">
                                 <label>
@@ -109,7 +109,7 @@
                 <div class="popup">
                     <!--login form-->
                     <div class="letter-w3ls">
-                        <form class="form-group" [formGroup]="this.loginDTO.form" (ngSubmit)="register()">
+                        <form class="form-group" [formGroup]="this.loginDTO.form" (ngSubmit)="registrar()">
 
                             <div class="input-group mb-2">
                                 <label>
@@ -157,7 +157,7 @@
                 <div class="popup">
                     <!--login form-->
                     <div class="letter-w3ls">
-                        <form class="form-group" [formGroup]="this.loginDTO.form" (ngSubmit)="delete()">
+                        <form class="form-group" [formGroup]="this.loginDTO.form" (ngSubmit)="remover()">
 
                             <div class="input-group mb-2">
                                 <label>

@@ -1,7 +1,7 @@
 import { LoginService } from './login.service';
 import { Component, OnInit } from '@angular/core';
 import { LoginDTO } from 'src/app/dto/login-dto';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -27,27 +27,50 @@ export class LoginComponent implements OnInit {
   //   // console.log(this.retorno$);
   // }
 
-  logar() {
-    this.service.findUser().subscribe((rs => {
-      // tslint:disable-next-line:prefer-const
-      let user = rs;
-    }));
-  }
-
-  forgot() {
-    this.service.updateUser(this.loginDTO.form.value).subscribe((rs => {
+  registrar() {
+    // tslint:disable-next-line:prefer-const
+    let retorno: LoginDTO;
+    this.service.registrar(this.loginDTO).subscribe((rs => {
       console.log(rs);
+      retorno = rs;
+      if (retorno.id) {
+        this.loginDTO.form.reset();
+      } else {
+        throwError('erro');
+      }
     }));
+
   }
 
-  register() {
-    this.service.addUser(this.loginDTO.form.value).subscribe((rs => {
-      console.log(rs);
-    }));
+  efetuarLogin() {
+    // tslint:disable-next-line:prefer-const
+    let retorno: LoginDTO[];
+    // tslint:disable-next-line:prefer-const
+    let user: LoginDTO;
+    this.service.users().subscribe((rs) => {
+      retorno = rs;
+      user = retorno.find(e => e.userName.value === this.loginDTO.userName.value);
+
+      // retorno.find((e) => {
+      //   // tslint:disable-next-line:no-unused-expression
+      //   user = e.userName.value === this.loginDTO.userName.value;
+      // });
+
+    });
   }
 
-  delete() {
-    this.service.deleteUser(this.loginDTO.form.value).subscribe((rs => {
+  recuperarSenha() {
+    // this.service.recuperarSenha(this.loginDTO).subscribe((rs => {
+    //   // tslint:disable-next-line:prefer-const
+    //   let user = rs;
+    // }));
+  }
+
+
+
+
+  remover() {
+    this.service.remover(this.loginDTO.form.value).subscribe((rs => {
       console.log(rs);
     }));
   }

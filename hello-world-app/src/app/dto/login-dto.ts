@@ -11,6 +11,13 @@ export class LoginDTO {
     constructor(private fb?: FormBuilder) {
     }
 
+    // tslint:disable-next-line:variable-name
+    private _id: number;
+
+    get id() {
+        return this.id;
+    }
+
     get userName() {
         return this.form.get('userName');
     }
