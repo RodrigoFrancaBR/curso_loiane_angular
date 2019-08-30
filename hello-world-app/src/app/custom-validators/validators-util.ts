@@ -8,9 +8,5 @@ export class ValidatorsUtil {
         return control.value && control.value !== '' && control.value === 'admin'
             ? { invalidName: true } :
             null;
-        // if (control.value && control.value !== '') {
-        //     return 'admin' === control.value ? { invalidName: true } : null;
-        // }
-        // return null;
     }
 }

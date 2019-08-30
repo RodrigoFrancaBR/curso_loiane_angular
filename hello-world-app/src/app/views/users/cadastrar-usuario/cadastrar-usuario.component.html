@@ -1,0 +1,51 @@
+<div class="card border-secondary">
+        <div class="card-header text-dark bg-interno">
+            <strong>CADASTRO DE USUÁRIOS</strong>
+        </div>
+    
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+    
+                    <form class="form-group" (ngSubmit)="onSubmit()" [formGroup]="this.userDTO.form">
+                        <div class="row">
+    
+                            <div class="form-group col-md-3">
+                                <label class="form-control-label" for="inpMatricula">
+                                    <strong>UserName</strong>
+                                </label>
+                                <input id="inpuserName" type="text" class="form-control" placeholder="UserName"
+                                    formControlName="userName" [ngClass]="aplicarCSSErro('userName')">
+                                <app-form-mensagem [mostraErro]="mostrarErro('userName')"
+                                    [errors]="userDTO.userName.errors"></app-form-mensagem>
+                            </div>
+    
+                            <div class="form-group col-md-3">
+                                <label class="form-control-label" for="selExcecao">
+                                    <strong>Password</strong>
+                                </label>
+                                <input id="inppassword" type="text" class="form-control" placeholder="password"
+                                    formControlName="password" [ngClass]="aplicarCSSErro('password')">
+                                <app-form-mensagem [mostraErro]="mostrarErro('password')"
+                                    [errors]="userDTO.password.errors">
+                                </app-form-mensagem>
+                            </div>
+    
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <div class="float-right">
+                                    <button type="submit" id="btnSalvar" class="btn btn-success">
+                                        <span class="fa fa-save"></span> Cadastrar</button>
+                                    <!-- <button type="submit" id="btnSalvar" class="btn btn-success"
+                                        [disabled]="userDTO.form.invalid">
+                                        <span class="fa fa-save"></span> Salvar</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

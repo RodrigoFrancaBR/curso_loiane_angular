@@ -1,13 +1,13 @@
-import { ValidatorsUtil } from './../custom-validators/validators-util';
-import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+
+import { ValidatorsUtil } from '../custom-validators/validators-util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
     providedIn: 'root',
 })
-
-export class LoginDTO {
-
+export class UserDTO {
+  static form: any;
     constructor(private fb?: FormBuilder) {
     }
 
@@ -26,15 +26,8 @@ export class LoginDTO {
         return this.form.get('password');
     }
 
-    get confirmaPassword() {
-        return this.form.get('confirmaPassword');
-    }
-
     form = this.fb.group({
         userName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10), ValidatorsUtil.validaName]],
-        password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
-        confirmaPassword: ['', [Validators.minLength(6), Validators.maxLength(10)]],
+        password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
     });
 }
-
-

@@ -1,0 +1,27 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card card border-secondary">
+                <div class="card-header text-white bg-principal">
+                    <i class="fa fa-window-restore"></i>
+                    <strong>RELAÇÃO DE USUARIOS</strong>
+                </div>
+
+                <div class="card-body">
+                    <app-pesquisar-usuario></app-pesquisar-usuario>
+                    <app-cadastrar-usuario></app-cadastrar-usuario>
+                    <app-grid-usuarios></app-grid-usuarios>
+
+
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button type="button" class="btn btn-success" (click)="novo()"
+                                title='Inclui uma exceção por dae'>
+                                <i class="fa fa-plus text-black"></i> Novo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

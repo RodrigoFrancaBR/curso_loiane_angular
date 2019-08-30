@@ -1,13 +1,16 @@
 ### START SERVER json-server --watch db.json
+
+### RODAR O npm run start para passar pelo proxy
+
 ### GET
 http://localhost:3000/users
 
 ### POST
-POST http://localhost:3000/users HTTP/1.1
+POST http://localhost:8000/poc-metrus-negativacao/users HTTP/1.1
 content-type: application/json
 
 {
-    "userName": "pedefeijo",
+    "userName": "dasdddd",
     "password": "123456"
 }
 
@@ -33,4 +36,4 @@ http://localhost:8080/myapp/myresource
 http://localhost:8080/base/users/Rodrigo
 
 ###
-http://localhost:8080/user
+http://localhost:8000/poc-metrus-negativacao/users
