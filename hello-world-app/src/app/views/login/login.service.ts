@@ -2,19 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
-import { LoginDTO } from './../../dto/login-dto';
+import { LoginDTO } from 'src/app/dto/login-dto';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class LoginService {
+<<<<<<< HEAD
   // private readonly API = 'http://localhost:3000/users';
  //  private readonly API = '/api/myapp/myresource';
+=======
+  private readonly API = '/api/users';
+  // private readonly API = 'http://localhost:8080/user';
+  // private readonly API = 'http://localhost:3000/users';
+>>>>>>> 965a44c471c95211a23cc940aad7120ea6a42fdd
 
   constructor(private httpClient: HttpClient) {
   }
 
+<<<<<<< HEAD
   // users(): Observable<LoginDTO[]> {
   //   return this.httpClient.get<LoginDTO[]>(this.API);
   // }
@@ -26,5 +33,31 @@ export class LoginService {
   // usersAdd(loginDTO: LoginDTO): Observable<any> {
   //   return this.httpClient.post(this.API, loginDTO);
   // }
+=======
+  registrar(loginDTO: LoginDTO): Observable<any> {
+    return this.httpClient.post(this.API, loginDTO.form.value);
+  }
+
+  efetuarLogin(loginDTO: LoginDTO): Observable<any> {
+    return this.httpClient.post(this.API, loginDTO);
+  }
+
+  recuperarSenha(loginDTO: LoginDTO): Observable<any> {
+    return this.httpClient.get(this.API);
+  }
+
+  remover(loginDTO: LoginDTO): Observable<any> {
+    return this.httpClient.delete(this.API);
+  }
+
+  users(): Observable<any> {
+    return this.httpClient.get(this.API);
+  }
+
+  // users(): Observable<LoginDTO[]> {
+  //   return this.httpClient.get<LoginDTO[]>(this.API);
+  // }
+
+>>>>>>> 965a44c471c95211a23cc940aad7120ea6a42fdd
 }
 
