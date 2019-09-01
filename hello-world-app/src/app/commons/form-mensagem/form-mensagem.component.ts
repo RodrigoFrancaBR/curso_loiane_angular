@@ -1,4 +1,4 @@
-import { MensagemErrors } from './../shared/mensagem-errors';
+import { MensagemErrors } from '../custom-mensagem/mensagem-errors';
 import { ValidatorFn, ValidationErrors, AbstractControl, FormControl } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./form-mensagem.component.css']
 })
 export class FormMensagemComponent {
-  
+
   @Input()
   mostraErro = true;
 

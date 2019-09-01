@@ -1,0 +1,35 @@
+<div class="card border-secondary">
+  <div class="card-header text-dark bg-interno">
+    <strong>PESQUISAR USUÁRIO</strong>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-group" (ngSubmit)="onSubmit()" [formGroup]="formulario">
+          <div class="row">
+
+            <div class="form-group col-md-3">
+              <label class="form-control-label" for="inpMatricula">
+                <strong>ID</strong>
+              </label>
+              <input id="inpId" type="text" class="form-control" placeholder="id" formControlName="id"
+                [ngClass]="aplicarCSSErro('id')">
+              <app-form-mensagem [errors]="this.id.errors" [mostraErro]="mostrarErro('id')">
+              </app-form-mensagem>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <div class="float-right">
+                <button type="submit" id="btnPesquisar" class="btn btn-success">
+                  <span class="fa fa-save"></span> Pesquisar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

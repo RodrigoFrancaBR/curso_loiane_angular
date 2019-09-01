@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
     // this.service.users().subscribe((rs) => {
     //   this.retorno = rs;
     // });
-    this.service.resource().subscribe((rs) => {
-      console.log (rs);
-      // this.retorno = rs;
-    });
+    // this.service.resource().subscribe((rs) => {
+    //   console.log (rs);
+    //   // this.retorno = rs;
+    // });
     console.log(this.retorno);
     // this.retorno$ = this.service.users();
     // console.log(this.retorno$);

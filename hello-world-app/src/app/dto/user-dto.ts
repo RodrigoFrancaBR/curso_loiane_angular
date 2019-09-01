@@ -1,14 +1,17 @@
+import { FormBuilder, Validators } from '@angular/forms';
+
 import { ValidatorsUtil } from '../commons/custom-validators/validators-util';
-import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { Injectable } from '@angular/core';
 
-@Injectable({
-    providedIn: 'root',
-})
-
-export class LoginDTO {
-
+export class UserDTO {
+    static form: any;
     constructor(private fb?: FormBuilder) {
+    }
+
+    // tslint:disable-next-line:variable-name
+    private _id: number;
+
+    get id() {
+        return this.id;
     }
 
     get userName() {
@@ -21,8 +24,6 @@ export class LoginDTO {
 
     form = this.fb.group({
         userName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10), ValidatorsUtil.validaName]],
-        password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+        password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
     });
 }
-
-

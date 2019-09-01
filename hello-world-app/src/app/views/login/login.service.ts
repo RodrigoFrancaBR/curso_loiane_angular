@@ -19,9 +19,9 @@ export class LoginService {
   //   return this.httpClient.get<LoginDTO[]>(this.API);
   // }
 
-  resource(): Observable<any[]> {
-    return this.httpClient.get<any[]>('api/myresource:');
-  }
+  // resource(): Observable<any[]> {
+  //   return this.httpClient.get('api/myresource:');
+  // }
 
   // usersAdd(loginDTO: LoginDTO): Observable<any> {
   //   return this.httpClient.post(this.API, loginDTO);
