@@ -1,10 +1,10 @@
-import { ValidatorsUtil } from './../../../commons/custom-validators/validators-util';
-import { UsuarioDTO } from "./../../../dto/UsuarioDTO";
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { UsersService } from '../users.service';
-import { FormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { FormUtil } from 'src/app/commons/util/form-util';
+import { ValidatorsUtil } from './../../../commons/custom-validators/validators-util';
+import { UsuarioDTO } from 'src/app/dto/usuario-dto';
 
 @Component({
   selector: 'app-cadastrar-user',
@@ -18,7 +18,6 @@ export class CadastrarUserComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public usuarioDTO: UsuarioDTO,
     private service: UsersService) {
   }
 

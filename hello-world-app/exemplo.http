@@ -1,7 +1,8 @@
 ### START SERVER json-server --watch db.json
 
 ### GET
-http://localhost:8080/users
+// http://localhost:8080/users
+http://localhost:8000/poc-metrus-negativacao/users
 
 ### POST
 POST http://localhost:8080/users HTTP/1.1
@@ -25,4 +26,5 @@ content-type: application/json
 DELETE http://localhost:8080/users/2 HTTP/1.1
 
 ### GET/ID
-http://localhost:8080/users/1
+// http://localhost:8080/users/1
+http://localhost:8000/poc-metrus-negativacao/users/0

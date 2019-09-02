@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { UsuarioDTO } from "./../../../dto/UsuarioDTO";
 import { UsersService } from './../users.service';
+import { UsuarioDTO } from 'src/app/dto/usuario-dto';
 
 @Component({
   selector: 'app-grid-users',
