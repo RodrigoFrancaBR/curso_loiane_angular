@@ -51,7 +51,17 @@ export class UsersComponent implements OnInit {
   }
 
   novo() {
-    console.log('novo');
+    // agendar() {
+    //   this.estadoTela.estadoTela = 'agendar';
+    //   const estadoTela = JSON.stringify(this.estadoTela);
+    //   const nav: NavigationExtras = {
+    //     queryParams: {
+    //       'estadoTela': estadoTela,
+    //     },
+    //     skipLocationChange: true
+    //   };
+    //   this.router.navigate(['cobranca/pesquisa-aviso-debito/dados-agendamento'], nav);
+    // }
   }
 
 }

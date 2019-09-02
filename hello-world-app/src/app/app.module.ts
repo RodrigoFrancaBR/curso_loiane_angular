@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { FormMensagemComponent } from './commons/form-mensagem/form-mensagem.component';
@@ -23,7 +24,8 @@ import { CadastrarUserComponent } from './views/users/cadastrar-user/cadastrar-u
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
