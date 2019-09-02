@@ -1,14 +1,14 @@
-import { UserDTO } from './../../dto/user-dto';
 import { Component, OnInit } from '@angular/core';
 
 import { UsersService } from './users.service';
-import { UsuarioDTO } from './../../dto/usuario-dto';
+import { UsuarioDTO } from "./../../dto/UsuarioDTO";
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
+
 export class UsersComponent implements OnInit {
 
   listaDeUsuarios: UsuarioDTO[] = [];
@@ -35,7 +35,6 @@ export class UsersComponent implements OnInit {
 
   executarPesquisa(id: number): void {
     this.service.pesquisar(id).subscribe((rs) => {
-      // const usuario: UsuarioDTO = rs;
       this.listaDeUsuarios = [];
       this.listaDeUsuarios.push(rs);
     },
@@ -45,6 +44,10 @@ export class UsersComponent implements OnInit {
       },
       () => console.log('request complete')
     );
+  }
+
+  executarCadastro(usuarioDTO: UsuarioDTO) {
+    console.log('cadastrando');
   }
 
   novo() {

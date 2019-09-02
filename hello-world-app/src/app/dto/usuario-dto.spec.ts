@@ -1,4 +1,4 @@
-import { UsuarioDTO } from './usuario-dto';
+import { UsuarioDTO } from "./UsuarioDTO";
 
 describe('UsuarioDto', () => {
   it('should create an instance', () => {

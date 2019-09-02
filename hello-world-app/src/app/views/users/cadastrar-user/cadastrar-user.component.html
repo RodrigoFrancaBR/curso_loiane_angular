@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
 
-                <form class="form-group" (ngSubmit)="onSubmit()" [formGroup]="this.userDTO.form">
+                <form class="form-group" (ngSubmit)="onSubmit()" [formGroup]="formulario">
                     <div class="row">
 
                         <div class="form-group col-md-3">
@@ -17,17 +17,28 @@
                             <input id="inpuserName" type="text" class="form-control" placeholder="UserName"
                                 formControlName="userName" [ngClass]="aplicarCSSErro('userName')">
                             <app-form-mensagem [mostraErro]="mostrarErro('userName')"
-                                [errors]="userDTO.userName.errors"></app-form-mensagem>
+                                [errors]="userName.errors"></app-form-mensagem>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label class="form-control-label" for="selExcecao">
                                 <strong>Password</strong>
                             </label>
-                            <input id="inppassword" type="text" class="form-control" placeholder="password"
+                            <input id="inppassword" type="password" class="form-control" placeholder="password"
                                 formControlName="password" [ngClass]="aplicarCSSErro('password')">
                             <app-form-mensagem [mostraErro]="mostrarErro('password')"
-                                [errors]="userDTO.password.errors">
+                                [errors]="password.errors">
+                            </app-form-mensagem>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="form-control-label" for="selExcecao">
+                                <strong>Confirmar Password</strong>
+                            </label>
+                            <input id="inpConfPassword" type="password" class="form-control" placeholder="confirme password"
+                                formControlName="confirmaPassword" [ngClass]="aplicarCSSErro('confirmaPassword')">
+                            <app-form-mensagem [mostraErro]="mostrarErro('confirmaPassword')"
+                                [errors]="confirmaPassword.errors">
                             </app-form-mensagem>
                         </div>
 

@@ -1,6 +1,10 @@
-import { UserDTO } from './../../../dto/user-dto';
-import { Component, OnInit } from '@angular/core';
+import { ValidatorsUtil } from './../../../commons/custom-validators/validators-util';
+import { UsuarioDTO } from "./../../../dto/UsuarioDTO";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 import { UsersService } from '../users.service';
+import { FormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import { FormUtil } from 'src/app/commons/util/form-util';
 
 @Component({
   selector: 'app-cadastrar-user',
@@ -9,49 +13,57 @@ import { UsersService } from '../users.service';
 })
 export class CadastrarUserComponent implements OnInit {
 
+  @Output()
+  executarCadastro = new EventEmitter();
+
   constructor(
-    public userDTO: UserDTO,
+    private fb: FormBuilder,
+    public usuarioDTO: UsuarioDTO,
     private service: UsersService) {
   }
 
   ngOnInit() {
-    // this.service.buscarTodos().subscribe((rs) => {
-    //   console.log(rs);
-    // });
   }
 
-  salvar() {
-    console.log('salvando');
-    console.log(this.userDTO.form);
-    this.service.salvar(this.userDTO.form.value).subscribe(
-      success => console.log('sucesso'),
-      error => console.log(error),
-      () => console.log('request complete')
-    );
+  onSubmit() {
+    this.formulario.valid ? this.cadastrarUser(this.formulario.value) : FormUtil.markAllControlAsDirty(this.formulario);
   }
 
-  // aplicarCSSErro(controlName: string) {
-  //   return this.isValid(controlName) ? { 'is-invalid': true } : null;
-  // }
-
-  // mostrarErro(controlName: string) {
-  //   return this.isValid(controlName);
-  // }
-
-  // // um campo é inválido qdo possui algum erro já estiver sido tocado ou ganho foco.
-  // isValid(controlName: string): boolean {
-  //   return this.userDTO.form.get(controlName).errors &&
-  //     (this.userDTO.form.get(controlName).touched ||
-  //       this.userDTO.form.get(controlName).dirty) ? true : false;
-  // }
-
-  submit() {
-    this.service.salvar(this.userDTO.form.value).subscribe(
-      success => console.log('sucesso'),
-      error => console.log(error),
-      () => console.log('request complete')
-    );
+  // metodos com as regras de negócio
+  cadastrarUser(usuarioDTO: UsuarioDTO) {
+    this.executarCadastro.emit(usuarioDTO);
   }
 
+  aplicarCSSErro(controlName: string) {
+    return FormUtil.aplicarCSSErro(this.formulario, controlName);
+  }
+
+  mostrarErro(controlName: string) {
+    return FormUtil.mostrarErro(this.formulario, controlName);
+  }
+
+  // tslint:disable-next-line: member-ordering
+  formulario = this.fb.group({
+    userName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10), ValidatorsUtil.validaName]],
+    password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+    confirmaPassword: ['', [Validators.minLength(6), Validators.maxLength(10)]],
+  });
+
+
+  get id() {
+    return this.id;
+  }
+
+  get userName() {
+    return this.formulario.get('userName');
+  }
+
+  get password() {
+    return this.formulario.get('password');
+  }
+
+  get confirmaPassword() {
+    return this.formulario.get('confirmaPassword');
+  }
 
 }

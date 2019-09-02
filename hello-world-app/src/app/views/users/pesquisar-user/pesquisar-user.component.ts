@@ -1,14 +1,14 @@
-import { FormUtil } from './../../../commons/util/form-util';
-import { UserDTO } from './../../../dto/user-dto';
-import { UsersService } from './../users.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+
+import { FormUtil } from './../../../commons/util/form-util';
 
 @Component({
   selector: 'app-pesquisar-user',
   templateUrl: './pesquisar-user.component.html',
   styleUrls: ['./pesquisar-user.component.css']
 })
+
 export class PesquisarUserComponent implements OnInit {
 
   constructor(

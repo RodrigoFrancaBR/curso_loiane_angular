@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './views/login/login.component';
 import { FormMensagemComponent } from './commons/form-mensagem/form-mensagem.component';
 import { UsersComponent } from './views/users/users.component';
 import { PesquisarUserComponent } from './views/users/pesquisar-user/pesquisar-user.component';
@@ -15,7 +14,6 @@ import { CadastrarUserComponent } from './views/users/cadastrar-user/cadastrar-u
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     FormMensagemComponent,
     UsersComponent,
     PesquisarUserComponent,

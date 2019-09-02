@@ -1,16 +1,18 @@
-import { UserDTO } from './../../../dto/user-dto';
-import { UsersService } from './../users.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { UsuarioDTO } from "./../../../dto/UsuarioDTO";
+import { UsersService } from './../users.service';
 
 @Component({
   selector: 'app-grid-users',
   templateUrl: './grid-users.component.html',
   styleUrls: ['./grid-users.component.css']
 })
+
 export class GridUsersComponent implements OnInit {
 
   @Input()
-  listaDeUsuarios: UserDTO[] = [];
+  listaDeUsuarios: UsuarioDTO[] = [];
 
   @Output()
   executarListarTodos = new EventEmitter();
