@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { UsersService } from './../users.service';
-import { UsuarioDTO } from 'src/app/dto/usuario-dto';
+import { User } from 'src/app/dto/user';
 
 @Component({
   selector: 'app-grid-users',
@@ -12,7 +12,7 @@ import { UsuarioDTO } from 'src/app/dto/usuario-dto';
 export class GridUsersComponent implements OnInit {
 
   @Input()
-  listaDeUsuarios: UsuarioDTO[] = [];
+  listaDeUsuarios: User[];
 
   @Output()
   executarListarTodos = new EventEmitter();
@@ -21,7 +21,7 @@ export class GridUsersComponent implements OnInit {
   constructor(private service: UsersService) { }
 
   ngOnInit() {
-    console.log(this.listaDeUsuarios);
-    this.executarListarTodos.emit();
+    // console.log(this.listaDeUsuarios);
+    // this.executarListarTodos.emit();
   }
 }

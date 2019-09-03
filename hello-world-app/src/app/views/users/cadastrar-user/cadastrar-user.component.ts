@@ -1,3 +1,4 @@
+import { User } from './../../../dto/user';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { UsersService } from '../users.service';
@@ -29,8 +30,8 @@ export class CadastrarUserComponent implements OnInit {
   }
 
   // metodos com as regras de negócio
-  cadastrarUser(usuarioDTO: UsuarioDTO) {
-    this.executarCadastro.emit(usuarioDTO);
+  cadastrarUser(user: User) {
+    this.executarCadastro.emit(user);
   }
 
   aplicarCSSErro(controlName: string) {

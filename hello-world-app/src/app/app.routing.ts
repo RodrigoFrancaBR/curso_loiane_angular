@@ -1,3 +1,4 @@
+import { PesquisarUserComponent } from './views/users/pesquisar-user/pesquisar-user.component';
 import { UsersComponent } from './views/users/users.component';
 import { CadastrarUserComponent } from './views/users/cadastrar-user/cadastrar-user.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,17 +7,17 @@ import { GridUsersComponent } from './views/users/grid-users/grid-users.componen
 
 const APP_ROUTES: Routes = [
     {
-        path: '/add',
+        path: 'users/add',
         component: CadastrarUserComponent
     },
     {
-        path: '/todos',
+        path: 'users',
         component: GridUsersComponent
     },
-    // {
-    //     path: '',
-    //     component: UsersComponent
-    // },
+    {
+        path: '',
+        component: UsersComponent
+    },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

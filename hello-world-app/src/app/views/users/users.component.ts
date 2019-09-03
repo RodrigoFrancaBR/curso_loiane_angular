@@ -1,7 +1,8 @@
+import { EstadoTela } from './../../dto/estado-tela';
 import { Component, OnInit } from '@angular/core';
 
 import { UsersService } from './users.service';
-import { UsuarioDTO } from 'src/app/dto/usuario-dto';
+import { User } from 'src/app/dto/user';
 
 @Component({
   selector: 'app-users',
@@ -11,18 +12,20 @@ import { UsuarioDTO } from 'src/app/dto/usuario-dto';
 
 export class UsersComponent implements OnInit {
 
-  listaDeUsuarios: UsuarioDTO[] = [];
-
+  listaDeUsuarios: User[] = [];
+  estadoTela: EstadoTela = new EstadoTela(status = 'buscar');
   constructor(
     private service: UsersService,
+
   ) { }
 
   ngOnInit() {
   }
 
   executarListarTodos(): void {
+    console.log(this.estadoTela.status);
+    this.listaDeUsuarios = [];
     this.service.buscarTodos().subscribe((rs) => {
-      this.listaDeUsuarios = [];
       this.listaDeUsuarios = rs;
     },
       (error) => {
@@ -34,6 +37,7 @@ export class UsersComponent implements OnInit {
   }
 
   executarPesquisa(id: number): void {
+    console.log(this.estadoTela.status);
     this.service.pesquisar(id).subscribe((rs) => {
       this.listaDeUsuarios = [];
       this.listaDeUsuarios.push(rs);
@@ -46,22 +50,37 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  executarCadastro(usuarioDTO: UsuarioDTO) {
-    console.log('cadastrando');
+  executarCadastro(user: User) {
+    console.log(this.estadoTela.status);
+    this.service.salvar(user).subscribe((rs) => {
+      this.executarListarTodos();
+      this.estadoTela.mudarParaBuscar();
+    },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        console.log('complete');
+      }
+    );
+  }
+
+  executarLimpeza() {
+    console.log(this.estadoTela);
+    this.listaDeUsuarios = [];
   }
 
   novo() {
-    // agendar() {
-    //   this.estadoTela.estadoTela = 'agendar';
-    //   const estadoTela = JSON.stringify(this.estadoTela);
-    //   const nav: NavigationExtras = {
-    //     queryParams: {
-    //       'estadoTela': estadoTela,
-    //     },
-    //     skipLocationChange: true
-    //   };
-    //   this.router.navigate(['cobranca/pesquisa-aviso-debito/dados-agendamento'], nav);
-    // }
+    console.log(this.estadoTela);
+    this.estadoTela.mudarParaSalvar();
+  }
+
+  buscarTodos() {
+    console.log(this.estadoTela);
+    if (!this.estadoTela.isBuscar()) {
+      this.estadoTela.mudarParaBuscar();
+    }
+    this.executarListarTodos();
   }
 
 }

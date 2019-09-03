@@ -1,3 +1,4 @@
+import { User } from './../../../dto/user';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -22,6 +23,9 @@ export class PesquisarUserComponent implements OnInit {
   @Output()
   executarPesquisa = new EventEmitter();
 
+  @Output()
+  executarLimpeza = new EventEmitter();
+
   formulario = this.fb.group({
     id: ['', [Validators.required]]
   });
@@ -31,6 +35,12 @@ export class PesquisarUserComponent implements OnInit {
 
   onSubmit() {
     this.formulario.valid ? this.pesquisarUser(this.id.value) : FormUtil.markAllControlAsDirty(this.formulario);
+  }
+
+  limpar() {
+    console.log('limpar');
+    this.formulario.reset();
+    this.executarLimpeza.emit();
   }
 
   // metodos com as regras de negócio
