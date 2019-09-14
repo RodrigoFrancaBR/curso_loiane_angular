@@ -1,6 +1,6 @@
-import { MensagemErrors } from '../custom-mensagem/mensagem-errors';
-import { ValidatorFn, ValidationErrors, AbstractControl, FormControl } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
+import { MensagemErrors } from 'src/app/util/mensagem-errors';
+import { ValidatorFn, ValidationErrors } from '@angular/forms';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-form-mensagem',

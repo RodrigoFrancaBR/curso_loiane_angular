@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { FormMensagemComponent } from './commons/form-mensagem/form-mensagem.component';
+import { FormMensagemComponent } from './commons-component/form-mensagem/form-mensagem.component';
 import { UsersComponent } from './views/users/users.component';
 import { PesquisarUserComponent } from './views/users/pesquisar-user/pesquisar-user.component';
 import { GridUsersComponent } from './views/users/grid-users/grid-users.component';

@@ -1,11 +1,10 @@
-import { User } from './../../../dto/user';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 import { UsersService } from '../users.service';
-import { FormBuilder, Validators } from '@angular/forms';
-import { FormUtil } from 'src/app/commons/util/form-util';
-import { ValidatorsUtil } from './../../../commons/custom-validators/validators-util';
-import { UsuarioDTO } from 'src/app/dto/usuario-dto';
+import { FormUtil } from 'src/app/util/form-util';
+import { User } from 'src/app/interfaces/user';
+import { ValidatorsUtil } from 'src/app/util/validators-util';
 
 @Component({
   selector: 'app-cadastrar-user',

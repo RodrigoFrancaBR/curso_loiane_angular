@@ -1,8 +1,7 @@
-import { User } from './../../../dto/user';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { FormUtil } from './../../../commons/util/form-util';
+import { FormUtil } from 'src/app/util/form-util';
 
 @Component({
   selector: 'app-pesquisar-user',

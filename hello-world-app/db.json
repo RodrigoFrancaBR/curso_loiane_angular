@@ -34,6 +34,18 @@
       "userName": "dasasda",
       "password": "dasdasdas",
       "id": 7
+    },
+    {
+      "userName": "teste",
+      "password": "teerrwrwe",
+      "confirmaPassword": "wrerwerw",
+      "id": 8
+    },
+    {
+      "userName": "Rodrigo",
+      "password": "123333",
+      "confirmaPassword": "12312312",
+      "id": 9
     }
   ]
 }
