@@ -1,30 +1,28 @@
 ### START SERVER json-server --watch db.json
 
 ### GET
-// http://localhost:8080/users
-http://localhost:8000/poc-metrus-negativacao/users
+http://localhost:3000/users
 
 ### POST
-POST http://localhost:8080/users HTTP/1.1
+POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "userName": "rfrancacosta",
+    "userName": "rfrancacosta22",
     "password": "123456"
 }
 
 ### PUT
-PUT http://localhost:8080/users/2 HTTP/1.1
+PUT http://localhost:3000/users/8 HTTP/1.1
 content-type: application/json
 
 {
-    "userName": "rfrancacosta2",
+    "userName": "rfrancacosta23",
     "password": "123456"
 }
 
 ### DELETE
-DELETE http://localhost:8080/users/2 HTTP/1.1
+DELETE http://localhost:3000/users/8 HTTP/1.1
 
 ### GET/ID
-// http://localhost:8080/users/1
-http://localhost:8000/poc-metrus-negativacao/users/0
+http://localhost:3000/users/1
