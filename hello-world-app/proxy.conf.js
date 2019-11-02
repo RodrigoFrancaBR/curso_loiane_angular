@@ -2,7 +2,7 @@ const PROXY_CONFIG = [
     {
         context: ['/api'],
         // target: 'http://localhost:3000/',
-        target: 'http://localhost:8080/',
+        target: 'http://localhost:8000/',
         secure: false,
         logLevel: 'debug',
         pathRewrite: { '^/api': '' }
@@ -10,3 +10,5 @@ const PROXY_CONFIG = [
 ];
 
 module.exports = PROXY_CONFIG;
+
+// para rodar pelo proxy usar o comando npm run start

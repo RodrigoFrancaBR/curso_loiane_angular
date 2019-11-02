@@ -1,7 +1,8 @@
 ### START SERVER json-server --watch db.json
 
+
 ### GET
-http://localhost:3000/users
+http://localhost:8000/usuarios
 
 ### POST
 POST http://localhost:3000/users HTTP/1.1

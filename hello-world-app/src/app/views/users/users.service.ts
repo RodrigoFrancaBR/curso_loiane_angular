@@ -11,7 +11,7 @@ import { User } from 'src/app/interfaces/user';
 })
 export class UsersService {
   // private readonly API = '/api/users';
-  private readonly API = 'api/users';
+  private readonly API = 'api/usuarios';
   constructor(private http: HttpClient) {
   }
 

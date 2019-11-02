@@ -22,10 +22,8 @@
 
                 <div class="card-body">
                     <app-pesquisar-user (executarPesquisa)="executarPesquisa($event)" *ngIf="estadoTela.isBuscar()" (executarLimpeza)="executarLimpeza()"></app-pesquisar-user>
-                    <app-cadastrar-user (executarCadastro)="executarCadastro($event)" *ngIf="!estadoTela.isBuscar()">
-                    </app-cadastrar-user>
-                    <app-grid-users [listaDeUsuarios]="listaDeUsuarios" (executarListarTodos)="executarListarTodos()"
-                        *ngIf="estadoTela.isBuscar() && listaDeUsuarios.length>0"> </app-grid-users>
+                    <app-cadastrar-user (executarCadastro)="executarCadastro($event)" *ngIf="!estadoTela.isBuscar()"></app-cadastrar-user>
+                    <app-grid-users [listaDeUsuarios]="listaDeUsuarios" (executarListarTodos)="executarListarTodos()"*ngIf="estadoTela.isBuscar() && listaDeUsuarios.length>0"> </app-grid-users>
                 </div>
             </div>
         </div>
