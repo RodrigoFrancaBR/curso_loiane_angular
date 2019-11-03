@@ -1,6 +1,6 @@
-import { MensagemErrors } from 'src/app/util/mensagem-errors';
 import { ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Component, Input } from '@angular/core';
+import { FormMensagemError } from 'src/app/util/form-mensagem-error';
 
 @Component({
   selector: 'app-form-mensagem',
@@ -10,8 +10,9 @@ import { Component, Input } from '@angular/core';
 export class FormMensagemComponent {
 
   @Input()
-  mostraErro = true;
+  mostraErro: boolean = false;
 
+  @Input()
   msg: string;
 
   // tslint:disable-next-line: variable-name
@@ -25,21 +26,13 @@ export class FormMensagemComponent {
   set errors(errors: ValidationErrors) {
     // se o campo tiver algum erro
     if (errors) {
-      if (errors.required) {
-        this.msg = MensagemErrors.REQUIRED;
-      } else if (errors.email) {
-        this.msg = MensagemErrors.EMAIL;
-      } else if (errors.minlength) {
-        // neste caso queremos mostrar uma msg personalizada
-        this.msg = MensagemErrors.minlength(errors);
-      } else if (errors.invalidName) {
-        this.msg = MensagemErrors.INVALIDNAME;
-      }
+      const listaDeErros = this.msgError.getErrors(errors);
+      this.msg = listaDeErros[0];
     } else {
       this.msg = null;
     }
   }
 
-  constructor() { }
+  constructor(private msgError: FormMensagemError) { }
 
 }

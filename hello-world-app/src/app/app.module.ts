@@ -10,6 +10,8 @@ import { UsersComponent } from './views/users/users.component';
 import { PesquisarUserComponent } from './views/users/pesquisar-user/pesquisar-user.component';
 import { GridUsersComponent } from './views/users/grid-users/grid-users.component';
 import { CadastrarUserComponent } from './views/users/cadastrar-user/cadastrar-user.component';
+import { AgendamentoComponent } from './views/agendamento/agendamento.component';
+import { FormMensagemError } from './util/form-mensagem-error';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { CadastrarUserComponent } from './views/users/cadastrar-user/cadastrar-u
     UsersComponent,
     PesquisarUserComponent,
     GridUsersComponent,
-    CadastrarUserComponent
+    CadastrarUserComponent,
+    AgendamentoComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { CadastrarUserComponent } from './views/users/cadastrar-user/cadastrar-u
     HttpClientModule,
     routing
   ],
-  providers: [],
+  providers: [FormMensagemError],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

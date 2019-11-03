@@ -33,7 +33,7 @@ export class PesquisarUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.formulario.valid ? this.pesquisarUser(this.id.value) : FormUtil.markAllControlAsDirty(this.formulario);
+    this.formulario.valid ? this.pesquisarUser(this.id.value) : FormUtil.marcaComoDirtyOsControles(this.formulario);
   }
 
   limpar() {

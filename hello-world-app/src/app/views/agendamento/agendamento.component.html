@@ -1,0 +1,64 @@
+<div class="card border-secondary">
+  <div class="card-header text-dark bg-interno">
+    <strong>Pesquisar Agendamento</strong>
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form (ngSubmit)="pesquisar()" [formGroup]="formulario">
+
+          <div class="row">
+
+            <div class="form-group col-md-2">
+              <label class="form-control-label" for="selDataInicio">
+                <strong>Data de visita inicial</strong>
+              </label>
+              <input id="inpDataVisitaInicio" [textMask]="{mask: maskDDMMYYYYinicio}" type="text" class="form-control"
+                title="Digite a data inicio." placeholder="DD/MM/AAAA" formControlName="dataVisitaInicio"
+                [ngClass]="aplicarCSSErro('dataVisitaInicio')">
+              <app-form-mensagem [errors]="dataVisitaInicio.errors" [mostraErro]="mostrarErro('dataVisitaInicio')">
+              </app-form-mensagem>
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label" for="ate">
+              </label>
+              <div class="input-group">
+                <span class="m-2">Até</span>
+              </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <label class="form-control-label" for="selDataFim">
+                <strong>Data de visita final</strong>
+              </label>
+              <input id="inpDataVisitaFinal" type="text" class="form-control" title="Digite a data fim."
+                placeholder="DD/MM/AAAA" formControlName="dataVisitaFinal"
+                [ngClass]="aplicarCSSErro('dataVisitaFinal')">
+              <app-form-mensagem [errors]="dataVisitaFinal.errors" [mostraErro]="mostrarErro('dataVisitaFinal')">
+              </app-form-mensagem>
+            </div>
+
+          </div>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-12 text-right">
+
+              <button type="submit" id="btnPesquisar" class="btn btn-success" title='Pesquisar.'>
+                <span class="fa fa-search"></span> Pesquisar</button>
+
+              <button type="button" id="btnLimpar" class="btn btn-primary" title='Limpar o filtro'
+                (click)="limparFiltro()">
+                <span class="fa fa-eraser"></span> Limpar</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>

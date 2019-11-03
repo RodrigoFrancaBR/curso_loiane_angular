@@ -1,3 +1,4 @@
+import { AgendamentoComponent } from './views/agendamento/agendamento.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
@@ -17,6 +18,10 @@ const APP_ROUTES: Routes = [
     {
         path: '',
         component: UsersComponent
+    },
+    {
+        path: 'agendamento',
+        component: AgendamentoComponent
     },
 ];
 

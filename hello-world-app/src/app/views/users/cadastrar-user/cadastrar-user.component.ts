@@ -25,7 +25,7 @@ export class CadastrarUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.formulario.valid ? this.cadastrarUser(this.formulario.value) : FormUtil.markAllControlAsDirty(this.formulario);
+    this.formulario.valid ? this.cadastrarUser(this.formulario.value) : FormUtil.marcaComoDirtyOsControles(this.formulario);
   }
 
   // metodos com as regras de negócio
