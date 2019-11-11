@@ -18,7 +18,7 @@ export class InputDataInicioComponent implements OnInit {
 
   // tslint:disable-next-line: member-ordering
   formulario = this.fb.group({
-    dataInicio: [null, [Validators.required, FormUtil.date]],
+    dataInicio: [null, [Validators.required]],
   });
 
 
