@@ -6,19 +6,19 @@
   <div class="card-body">
     <div class="row">
       <div class="col-md-12">
-        <form (ngSubmit)="pesquisar()" [formGroup]="formulario">
+        <form [formGroup]="formulario" (ngSubmit)="pesquisar()">
 
           <div class="row">
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
               <label class="form-control-label" for="selDataInicio">
                 <strong>Data de visita inicial</strong>
               </label>
-              <input id="inpDataVisitaInicio" [textMask]="{mask: maskDDMMYYYYinicio}" type="text" class="form-control"
-                title="Digite a data inicio." placeholder="DD/MM/AAAA" formControlName="dataVisitaInicio"
+              <!-- <app-input-data-inicio></app-input-data-inicio> -->
+              <input id="inpDataVisitaInicio" formControlName="dataVisitaInicio" type="date" class="form-control"
+               title="Digite a data inicio." placeholder="DD/MM/AAAA" max="2020-12-31" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
                 [ngClass]="aplicarCSSErro('dataVisitaInicio')">
-              <app-form-mensagem [errors]="dataVisitaInicio.errors" [mostraErro]="mostrarErro('dataVisitaInicio')">
-              </app-form-mensagem>
+              <app-form-mensagem [errors]="dataVisitaInicio.errors" [mostraErro]="mostrarErro('dataVisitaInicio')"></app-form-mensagem>
             </div>
 
             <div class="form-group">
@@ -29,15 +29,14 @@
               </div>
             </div>
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
               <label class="form-control-label" for="selDataFim">
                 <strong>Data de visita final</strong>
               </label>
-              <input id="inpDataVisitaFinal" type="text" class="form-control" title="Digite a data fim."
-                placeholder="DD/MM/AAAA" formControlName="dataVisitaFinal"
+              <input id="inpDataVisitaFinal" type="date" class="form-control" title="Digite a data fim."
+                placeholder="DD/MM/AAAA" formControlName="dataVisitaFinal" max="2020-12-31" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
                 [ngClass]="aplicarCSSErro('dataVisitaFinal')">
-              <app-form-mensagem [errors]="dataVisitaFinal.errors" [mostraErro]="mostrarErro('dataVisitaFinal')">
-              </app-form-mensagem>
+              <app-form-mensagem [errors]="dataVisitaFinal.errors" [mostraErro]="mostrarErro('dataVisitaFinal')"></app-form-mensagem>
             </div>
 
           </div>

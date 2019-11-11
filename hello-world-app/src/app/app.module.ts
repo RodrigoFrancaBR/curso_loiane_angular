@@ -12,6 +12,7 @@ import { GridUsersComponent } from './views/users/grid-users/grid-users.componen
 import { CadastrarUserComponent } from './views/users/cadastrar-user/cadastrar-user.component';
 import { AgendamentoComponent } from './views/agendamento/agendamento.component';
 import { FormMensagemError } from './util/form-mensagem-error';
+import { InputDataInicioComponent } from './commons-component/input-data-inicio/input-data-inicio.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormMensagemError } from './util/form-mensagem-error';
     PesquisarUserComponent,
     GridUsersComponent,
     CadastrarUserComponent,
-    AgendamentoComponent
+    AgendamentoComponent,
+    InputDataInicioComponent
   ],
   imports: [
     BrowserModule,

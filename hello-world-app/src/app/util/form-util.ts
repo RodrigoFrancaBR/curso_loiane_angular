@@ -1,37 +1,59 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { FormGroup, AbstractControl, ValidationErrors, ValidatorFn, FormControl, Validators } from '@angular/forms';
 
 @Injectable({
     providedIn: 'root'
 })
 export class FormUtil {
+    // exemplo da loiane que não funciona para dois campos
+    static valorInicialMaiorQueFinal(otherField: string) {
+        const validator: ValidatorFn = (formControl: FormControl) => {
+
+            if (otherField === null) {
+                throw new Error('Campo não informado!');
+            }
+
+            //  valida se o formulário existe e seus campos
+            if (!formControl.root || !(formControl.root as FormGroup).controls) {
+                return null;
+            }
+
+            const field = (formControl.root as FormGroup).get(otherField);
+
+            if (!field) {
+                throw new Error('Campo informado inválido!');
+            }
+
+            return field.value > formControl.value ? { dataInicioMaiorQueFinal: true } : null;
+        };
+        return validator;
+    }
+
+
     // Recebe uma data no formato de string e verifica se o valor é maior que uma segunda data no formato de string
     static dataInicioMaiorQueFinal(dataInicio: string): ValidatorFn {
         // recebe um controle do formulário como parâmetro, neste caso a data final e devolve um erro ou null
         return (controlNameDataFinal: AbstractControl): ValidationErrors | null => {
-            // se dataInicio maior que dataFinal retorna um obj nessa estrutura { dataInicioMaiorQueFinal: true } caso contrário null
-            // tslint:disable-next-line: max-line-length
-            // return DateValidator.strToDate(dataInicio) > DateValidator.strToDate(controlNameDataFinal.value) ? { dataInicioMaiorQueFinal: true } : null;
-            let inicio = new Date(dataInicio).toLocaleDateString('zh-TW');
-            let final = new Date(controlNameDataFinal.value).toLocaleDateString('zh-TW');
-            return inicio > final ? { dataInicioMaiorQueFinal: true } : null;
+            // se dataInicio maior que dataFinal retorna um obj nessa estrutura
+            // { dataInicioMaiorQueFinal: true } caso contrário null
+            return dataInicio > controlNameDataFinal.value ? { dataInicioMaiorQueFinal: true } : null;
         };
     }
 
-    // static intervaloMaiorQueTresMeses(dataInicio: String): ValidatorFn {
-    //     return (control: AbstractControl): ValidationErrors | null => {
-    //         let dataFinal: string = control.value;
-    //         let dataInicioDate = DateValidator.strToDate(dataInicio);
-    //         let dataFinalDate = DateValidator.strToDate(dataFinal);
+    static intervaloMaiorQueTresMeses(dataInicio: string): ValidatorFn {
+        return (control: AbstractControl): ValidationErrors | null => {
+            const dataFinal: string = control.value;
+            const dataInicioDate = new Date(dataInicio);
+            const dataFinalDate = new Date(dataFinal);
 
-    //         if (dataInicioDate && dataFinalDate) {
-    //             const utc1 = Date.UTC(dataInicioDate.getFullYear(), dataInicioDate.getMonth(), dataInicioDate.getDate());
-    //             const utc2 = Date.UTC(dataFinalDate.getFullYear(), dataFinalDate.getMonth(), dataFinalDate.getDate());
-    //             const diferencaDatas = Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
-    //             return diferencaDatas > 90 ? { intervaloMaiorQueTresMeses: true } : null;
-    //         }
-    //     };
-    // }
+            if (dataInicioDate && dataFinalDate) {
+                const utc1 = Date.UTC(dataInicioDate.getFullYear(), dataInicioDate.getMonth(), dataInicioDate.getDate());
+                const utc2 = Date.UTC(dataFinalDate.getFullYear(), dataFinalDate.getMonth(), dataFinalDate.getDate());
+                const diferencaDatas = Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
+                return diferencaDatas > 90 ? { intervaloMaiorQueTresMeses: true } : null;
+            }
+        };
+    }
 
     // marca todos os controles como dirty
     static marcaComoDirtyOsControles(formGroup: FormGroup) {
@@ -52,10 +74,25 @@ export class FormUtil {
     }
 
     static aplicarCSSErro(formGroup: FormGroup, controlName?: string) {
-        return this.isValid(formGroup, controlName) ? { 'is-invalid': true } : null;
+        // return this.isValid(formGroup, controlName) ? { 'is-invalid': true } : null;
+        return this.isValid(formGroup, controlName) ? { 'is-invalid': true } :
+            formGroup.get(controlName).pristine ? null : { 'is-valid': true };
     }
 
     static mostrarErro(formGroup: FormGroup, controlName: string) {
         return this.isValid(formGroup, controlName);
+    }
+
+    static respondendoMudancasDoForm(valor: string, controle: AbstractControl): void {
+        controle.setValidators(
+            [
+                Validators.required,
+                FormUtil.dataInicioMaiorQueFinal(valor),
+                FormUtil.intervaloMaiorQueTresMeses(valor)
+
+            ]
+        );
+        // atualiza o controle com as novas validações
+        controle.updateValueAndValidity();
     }
 }
