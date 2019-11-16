@@ -1,8 +1,8 @@
-import { EstadoTela } from './../../dto/estado-tela';
 import { Component, OnInit } from '@angular/core';
 
 import { UsersService } from './users.service';
-import { User } from 'src/app/dto/user';
+import { EstadoTela } from './../../dto/estado-tela';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-users',

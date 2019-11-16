@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label [attr.for]="id" class="form-control-label">
+        <strong>{{label}}</strong>
+    </label>
+    <input class="form-control" [id]="id" type="date" [readonly]="!!isReadOnly" 
+        min="1500-01-01" max="2020-12-31" [(ngModel)]="value"
+        [ngClass]="classeCss">
+    <app-form-mensagem [errors]="control.errors" [mostraErro]="mostraErro"></app-form-mensagem>
+</div>

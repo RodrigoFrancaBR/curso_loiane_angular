@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { UsuarioDTO } from 'src/app/dto/usuario-dto';
-import { User } from 'src/app/dto/user';
+
+import { User } from 'src/app/interfaces/user';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  private readonly API = '/api/users';
+  // private readonly API = '/api/users';
+  private readonly API = 'api/usuarios';
   constructor(private http: HttpClient) {
   }
 

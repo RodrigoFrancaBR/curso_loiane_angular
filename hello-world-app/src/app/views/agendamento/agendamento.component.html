@@ -1,0 +1,57 @@
+<div class="card border-secondary">
+  <div class="card-header text-dark bg-interno">
+    <strong>Pesquisar Agendamento</strong>
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="formulario" (ngSubmit)="pesquisar()">
+
+          <div class="row">
+
+            <app-input-field id="inputDataInicio" title="Digite a data inicio." class="col-md-3"
+              [label]="'Data de visita inicial'" formControlName="dataVisitaInicio"
+              [classeCss]="aplicarCSSErro('dataVisitaInicio')" [control]="dataVisitaInicio"
+              [mostraErro]="mostrarErro('dataVisitaInicio')">
+            </app-input-field>
+
+            <div class="form-group">
+              <label class="form-control-label" for="ate">
+              </label>
+              <div class="input-group">
+                <span class="m-2">Até</span>
+              </div>
+            </div>
+
+            <app-input-field id="inputDataFinal" title="Digite a data final." class="col-md-3"
+              [label]="'Data de visita Final'" formControlName="dataVisitaFinal"
+              [classeCss]="aplicarCSSErro('dataVisitaFinal')" [control]="dataVisitaFinal"
+              [mostraErro]="mostrarErro('dataVisitaFinal')">
+            </app-input-field>
+
+          </div>
+
+          <br>
+          <br>
+
+          <div class="row">
+
+            <div class="col-md-12 text-right">
+
+              <button type="submit" id="btnPesquisar" class="btn btn-success" title='Pesquisar.'>
+                <span class="fa fa-search"></span> Pesquisar</button>
+
+              <button type="button" id="btnLimpar" class="btn btn-primary" title='Limpar o filtro'
+                (click)="limparFiltro()">
+                <span class="fa fa-eraser"></span> Limpar</button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

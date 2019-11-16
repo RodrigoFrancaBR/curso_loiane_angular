@@ -1,8 +1,6 @@
-import { User } from './../../../dto/user';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-
-import { FormUtil } from './../../../commons/util/form-util';
+import { FormUtil } from 'src/app/util/form-util';
 
 @Component({
   selector: 'app-pesquisar-user',
@@ -34,7 +32,7 @@ export class PesquisarUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.formulario.valid ? this.pesquisarUser(this.id.value) : FormUtil.markAllControlAsDirty(this.formulario);
+    this.formulario.valid ? this.pesquisarUser(this.id.value) : FormUtil.marcaComoDirtyOsControles(this.formulario);
   }
 
   limpar() {

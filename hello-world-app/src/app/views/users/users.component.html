@@ -10,10 +10,10 @@
                 <br>
 
                 <div class="col-md-12 text-right">
-                    <button type="button" class="btn btn-success" (click)="novo()" title='Inclui uma exceção por dae'>
+                    <!-- <button type="button" class="btn btn-success" (click)="novo()" title='Inclui uma exceção por dae'>
                         <i class="fa fa-plus text-black"></i> Novo
-                    </button>
-                    <button type="button" class="btn btn-primary" (click)="buscarTodos()"
+                    </button> -->
+                    <button id="btnTodos" type="button" class="btn btn-primary" (click)="buscarTodos()"
                         title='busca todos os usuários'>
                         <i class="fa fa-plus text-black"></i> Buscar Todos
                     </button>
@@ -22,10 +22,8 @@
 
                 <div class="card-body">
                     <app-pesquisar-user (executarPesquisa)="executarPesquisa($event)" *ngIf="estadoTela.isBuscar()" (executarLimpeza)="executarLimpeza()"></app-pesquisar-user>
-                    <app-cadastrar-user (executarCadastro)="executarCadastro($event)" *ngIf="!estadoTela.isBuscar()">
-                    </app-cadastrar-user>
-                    <app-grid-users [listaDeUsuarios]="listaDeUsuarios" (executarListarTodos)="executarListarTodos()"
-                        *ngIf="estadoTela.isBuscar() && listaDeUsuarios.length>0"> </app-grid-users>
+                    <app-cadastrar-user (executarCadastro)="executarCadastro($event)" *ngIf="!estadoTela.isBuscar()"></app-cadastrar-user>
+                    <app-grid-users [listaDeUsuarios]="listaDeUsuarios" (executarListarTodos)="executarListarTodos()"*ngIf="estadoTela.isBuscar() && listaDeUsuarios.length>0"> </app-grid-users>
                 </div>
             </div>
         </div>
