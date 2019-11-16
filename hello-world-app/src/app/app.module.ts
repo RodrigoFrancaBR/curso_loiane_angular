@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { routing } from './app.routing';
 
@@ -12,7 +12,7 @@ import { GridUsersComponent } from './views/users/grid-users/grid-users.componen
 import { CadastrarUserComponent } from './views/users/cadastrar-user/cadastrar-user.component';
 import { AgendamentoComponent } from './views/agendamento/agendamento.component';
 import { FormMensagemError } from './util/form-mensagem-error';
-import { InputDataInicioComponent } from './commons-component/input-data-inicio/input-data-inicio.component';
+import { InputFieldComponent } from './commons-component/input-field/input-field.component';
 
 
 @NgModule({
@@ -24,11 +24,12 @@ import { InputDataInicioComponent } from './commons-component/input-data-inicio/
     GridUsersComponent,
     CadastrarUserComponent,
     AgendamentoComponent,
-    InputDataInicioComponent
+    InputFieldComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     routing
   ],

@@ -9,13 +9,21 @@ import { FormBuilder, AbstractControl, Validators, FormGroup } from '@angular/fo
   styleUrls: ['./agendamento.component.css']
 })
 export class AgendamentoComponent implements OnInit {
-  @Output()
-  execucaoPesquisa = new EventEmitter();
-  formulario: FormGroup;
 
   constructor(
     private fb: FormBuilder,
   ) { }
+
+  // GETS DOS CONTROLES OBRIGATÓRIOS DO FORM
+  get dataVisitaInicio(): AbstractControl {
+    return this.formulario.get('dataVisitaInicio');
+  }
+  get dataVisitaFinal(): AbstractControl {
+    return this.formulario.get('dataVisitaFinal');
+  }
+  @Output()
+  execucaoPesquisa = new EventEmitter();
+  formulario: FormGroup;
 
   ngOnInit() {
     this.iniciarForm();
@@ -29,12 +37,10 @@ export class AgendamentoComponent implements OnInit {
     });
   }
 
-  // GETS DOS CONTROLES OBRIGATÓRIOS DO FORM
-  get dataVisitaInicio(): AbstractControl {
-    return this.formulario.get('dataVisitaInicio');
-  }
-  get dataVisitaFinal(): AbstractControl {
-    return this.formulario.get('dataVisitaFinal');
+  // caso queira disparar msg de erro se o campo já estiver sido tocado com tab
+  onKey($event) {
+    console.log($event);
+    this.formulario.markAsTouched();
   }
 
   // submit do form
@@ -47,7 +53,10 @@ export class AgendamentoComponent implements OnInit {
   }
 
   limparFiltro(): void {
+    // console.log(this.formulario);
     this.formulario.reset();
+    // FormUtil.marcaComoPristineOsControles(this.formulario);
+    // console.log(this.formulario);
   }
 
   aplicarCSSErro(controlName: string) {
@@ -93,6 +102,9 @@ export class AgendamentoComponent implements OnInit {
             FormUtil.intervaloMaiorQueTresMeses(this.dataVisitaInicio.value)
           ]
         );
+
+        // atualiza o controle com as novas validações
+        // this.dataVisitaFinal.updateValueAndValidity();
       }
     );
   }

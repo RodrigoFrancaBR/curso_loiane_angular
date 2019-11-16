@@ -66,6 +66,17 @@ export class FormUtil {
         });
     }
 
+    // marca todos os controles como pristine
+    static marcaComoPristineOsControles(formGroup: FormGroup) {
+        Object.keys(formGroup.controls).forEach(campo => {
+            const controle = formGroup.get(campo);
+            controle.markAsPristine();
+            if (controle instanceof FormGroup) {
+                this.marcaComoDirtyOsControles(controle);
+            }
+        });
+    }
+
     // um campo é inválido qdo possui algum erro, e se tiver sido tocado ou ganho foco.
     static isValid(formGroup: FormGroup, controlName: string): boolean {
         return formGroup.get(controlName).errors &&
