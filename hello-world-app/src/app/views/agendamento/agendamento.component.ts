@@ -1,3 +1,4 @@
+import { AgendamentoService } from './agendamento.service';
 
 import { FormUtil } from './../../util/form-util';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
@@ -12,6 +13,7 @@ export class AgendamentoComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private service: AgendamentoService
   ) { }
 
   // GETS DOS CONTROLES OBRIGATÓRIOS DO FORM
@@ -49,7 +51,19 @@ export class AgendamentoComponent implements OnInit {
       FormUtil.marcaComoDirtyOsControles(this.formulario);
       return;
     }
-    this.execucaoPesquisa.emit(this.formulario.value);
+    this.service.salvar(this.formulario.value).subscribe((rs) => {
+      if (rs) {
+        console.log(rs);
+      }
+    },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        console.log('complete');
+      }
+    );
+    // this.execucaoPesquisa.emit(this.formulario.value);
   }
 
   limparFiltro(): void {
